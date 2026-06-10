@@ -1,0 +1,176 @@
+
+<style>
+  .eval-wrap { padding: 1rem 0; font-family: var(--font-sans); }
+  .progress-bar-bg { height: 6px; background: var(--color-background-secondary); border-radius: 3px; margin-bottom: 1.5rem; }
+  .progress-bar-fill { height: 6px; background: #1D9E75; border-radius: 3px; transition: width 0.4s; }
+  .question-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+  .q-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .q-text { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 1rem; line-height: 1.5; }
+  .option-btn { display: block; width: 100%; text-align: left; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 14px; margin-bottom: 8px; font-size: 14px; color: var(--color-text-primary); cursor: pointer; transition: background 0.15s; }
+  .option-btn:hover { background: var(--color-background-tertiary); }
+  .option-btn.correct { background: #EAF3DE; border-color: #639922; color: #3B6D11; font-weight: 500; }
+  .option-btn.wrong { background: #FCEBEB; border-color: #A32D2D; color: #791F1F; }
+  .option-btn:disabled { cursor: default; }
+  .feedback { font-size: 13px; margin-top: 0.5rem; padding: 8px 12px; border-radius: var(--border-radius-md); line-height: 1.5; }
+  .feedback.ok { background: #EAF3DE; color: #3B6D11; }
+  .feedback.no { background: #FCEBEB; color: #791F1F; }
+  .nav-row { display: flex; justify-content: flex-end; margin-top: 1rem; }
+  .nav-btn { background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 8px 20px; font-size: 14px; color: var(--color-text-primary); cursor: pointer; }
+  .nav-btn:hover { background: var(--color-background-secondary); }
+  .score-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 2rem; text-align: center; }
+  .score-num { font-size: 48px; font-weight: 500; color: var(--color-text-primary); }
+  .score-label { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+  .badge { display: inline-block; padding: 4px 14px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 500; margin-bottom: 1.5rem; }
+  .badge-green { background: #EAF3DE; color: #3B6D11; }
+  .badge-amber { background: #FAEEDA; color: #854F0B; }
+  .badge-red { background: #FCEBEB; color: #791F1F; }
+  .review-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+  .dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; }
+  .dot-ok { background: #639922; }
+  .dot-no { background: #A32D2D; }
+</style>
+
+<div class="eval-wrap">
+  <h2 style="sr-only">Evaluación — Curso de oficiales FAMM 2026</h2>
+  <div id="main"></div>
+</div>
+
+<script>
+const preguntas = [
+  {
+    texto: "Un adulto novato está en el suelo y recibe un golpe directo a la cabeza. ¿Es legal o ilegal?",
+    opciones: ["Legal, los adultos pueden golpear donde quieran","Ilegal — novatos solo pueden golpear al cuerpo en el suelo","Legal si el referee no lo ve","Depende del nivel del contrincante"],
+    correcta: 1,
+    explicacion: "Para novatos y principiantes, en el suelo únicamente se permite golpeo al cuerpo, no a la cabeza. El referee debe detener y señalar la falta."
+  },
+  {
+    texto: "Un junior avanzado aplica un heel hook (palanca de talón). ¿Qué debe hacer el referee?",
+    opciones: ["Dejar continuar, es técnica avanzada","Advertir verbalmente sin detener","Detener el combate — el heel hook está prohibido para avanzados","Consultar con los jueces antes de actuar"],
+    correcta: 2,
+    explicacion: "El heel hook (palanca de talón) está explícitamente prohibido en la categoría avanzados. El referee debe detener el combate y aplicar el procedimiento de falta."
+  },
+  {
+    texto: "Se expulsa el protector bucal de un competidor sin intención durante el combate. ¿Cuándo detiene el tiempo el referee?",
+    opciones: ["Inmediatamente, sin importar la posición","En la primera oportunidad que no altere la posición de combate","Al finalizar el round","Solo si el competidor lo pide verbalmente"],
+    correcta: 1,
+    explicacion: "El reglamento indica que el referee detiene el tiempo en la primera oportunidad que tenga para colocarlo de nuevo sin alterar la posición de combate en la que estén."
+  },
+  {
+    texto: "Un competidor agarra la cerca para evitar un derribo. ¿Qué aplica el referee?",
+    opciones: ["Descalificación directa","Una sola advertencia","Deducción de 2 puntos automática","Detiene el combate y consulta con los jueces"],
+    correcta: 1,
+    explicacion: "Agarrar la jaula es infracción de advertencia (no de punto directo). Se emite una sola advertencia. La descalificación procede tras la acumulación de 3 faltas o una falta grave."
+  },
+  {
+    texto: "Durante un round, el 90% del tiempo los competidores estuvieron de pie. ¿Qué criterio priorizan los jueces al calificar?",
+    opciones: ["Grappling efectivo primero, luego striking","Striking efectivo primero, luego grappling","Control del área como criterio único","Agresividad, sin importar el tiempo de pie"],
+    correcta: 1,
+    explicacion: "Los jueces usan escala móvil: si el 90% del round fue de pie, se prioriza primero la eficacia del striking y después el agarre eficaz."
+  },
+  {
+    texto: "¿Cuántos minutos tiene la esquina del competidor para presentar una protesta después de terminado el combate?",
+    opciones: ["5 minutos","10 minutos","15 minutos","30 minutos"],
+    correcta: 1,
+    explicacion: "La protesta debe presentarse dentro de los 10 minutos siguientes a la finalización del combate, acompañada de fotografías o videos como evidencia."
+  },
+  {
+    texto: "Un juez avanzado asigna 10-8 a un round. ¿Cuál de estas situaciones lo justifica correctamente?",
+    opciones: ["Un competidor da más golpes pero sin daño visible","Un competidor domina abrumadoramente en golpeo o combate en piso","Ambos competidores pelean con igual efectividad","Un competidor intenta sumisiones aunque no las concrete"],
+    correcta: 1,
+    explicacion: "Un 10-8 aplica cuando un competidor domina abrumadoramente al golpear o en combate en piso, afectando negativamente al oponente con golpes efectivos y legales."
+  },
+  {
+    texto: "¿Cuáles son los dos tipos de vestimenta obligatoria que distinguen a los competidores masculinos de los femeninos?",
+    opciones: ["Los hombres usan casco; las mujeres no","Las mujeres tienen opción de pechera y protector inguinal; los hombres llevan concha obligatoria","Los hombres usan guantes de boxeo; las mujeres guantes de MMA","No hay diferencia de vestimenta entre géneros"],
+    correcta: 1,
+    explicacion: "Todos los masculinos llevan concha obligatoria. Las femeninas tienen la opción de usar pechera y protector inguinal — ambos sujetos a aprobación de la comisión."
+  },
+  {
+    texto: "En un torneo de formato eliminatorio, al término del 3er round el combate termina en empate. ¿Qué procede?",
+    opciones: ["Se declara no contest","Se repite el combate al día siguiente","Se disputa un 4to round extra obligatorio","Los jueces votan entre ellos para decidir"],
+    correcta: 2,
+    explicacion: "En formato de torneo donde se requiere progresión, no puede haber empates ni no contest. Se disputa un 4to round extra. Solo en torneo se permite este round adicional."
+  },
+  {
+    texto: "¿Qué puntaje de ranking obtiene el 1er lugar en un Campeonato Estatal (Torneo R2)?",
+    opciones: ["15 puntos","60 puntos","130 puntos","210 puntos"],
+    correcta: 1,
+    explicacion: "El Torneo R2 (Campeonato Estatal) otorga 60 puntos al 1er lugar, 40 al 2do y 20 al 3er lugar. Solo aplica para categorías avanzadas y ranqueables."
+  }
+];
+
+let actual = 0;
+let respondidas = [];
+let puntaje = 0;
+
+function render() {
+  const main = document.getElementById('main');
+  if (actual >= preguntas.length) {
+    mostrarResultados(main);
+    return;
+  }
+  const p = preguntas[actual];
+  const progPct = Math.round((actual / preguntas.length) * 100);
+  const ya = respondidas[actual];
+  main.innerHTML = `
+    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${progPct}%"></div></div>
+    <div class="q-label">Pregunta ${actual + 1} de ${preguntas.length}</div>
+    <div class="question-card">
+      <p class="q-text">${p.texto}</p>
+      ${p.opciones.map((op, i) => {
+        let cls = 'option-btn';
+        if (ya !== undefined) {
+          if (i === p.correcta) cls += ' correct';
+          else if (i === ya && ya !== p.correcta) cls += ' wrong';
+        }
+        return `<button class="${cls}" onclick="responder(${i})" ${ya !== undefined ? 'disabled' : ''}>${String.fromCharCode(65+i)}) ${op}</button>`;
+      }).join('')}
+      ${ya !== undefined ? `<div class="feedback ${ya === p.correcta ? 'ok' : 'no'}">${ya === p.correcta ? '✓ Correcto. ' : '✗ Incorrecto. '}${p.explicacion}</div>` : ''}
+    </div>
+    ${ya !== undefined ? `<div class="nav-row"><button class="nav-btn" onclick="siguiente()">${actual < preguntas.length - 1 ? 'Siguiente →' : 'Ver resultados →'}</button></div>` : ''}
+  `;
+}
+
+function responder(idx) {
+  if (respondidas[actual] !== undefined) return;
+  respondidas[actual] = idx;
+  if (idx === preguntas[actual].correcta) puntaje++;
+  render();
+}
+
+function siguiente() {
+  actual++;
+  render();
+}
+
+function mostrarResultados(main) {
+  const pct = Math.round((puntaje / preguntas.length) * 100);
+  let badgeCls = pct >= 80 ? 'badge-green' : pct >= 60 ? 'badge-amber' : 'badge-red';
+  let badgeTxt = pct >= 80 ? 'Aprobado' : pct >= 60 ? 'Suficiente' : 'Requiere refuerzo';
+  const review = preguntas.map((p, i) => {
+    const ok = respondidas[i] === p.correcta;
+    return `<div class="review-row"><div class="dot ${ok ? 'dot-ok' : 'dot-no'}"></div><div style="color:var(--color-text-primary)">${p.texto}</div></div>`;
+  }).join('');
+  main.innerHTML = `
+    <div class="score-card">
+      <div class="score-num">${puntaje}/${preguntas.length}</div>
+      <div class="score-label">${pct}% de respuestas correctas</div>
+      <span class="badge ${badgeCls}">${badgeTxt}</span>
+      <div style="text-align:left; margin-top: 1.5rem;">
+        <p style="font-size:13px; font-weight:500; color:var(--color-text-secondary); margin-bottom:0.75rem;">Resumen por pregunta</p>
+        ${review}
+      </div>
+      <div class="nav-row" style="margin-top:1.5rem; justify-content:center;">
+        <button class="nav-btn" onclick="reiniciar()">Intentar de nuevo</button>
+      </div>
+    </div>
+  `;
+}
+
+function reiniciar() {
+  actual = 0; respondidas = []; puntaje = 0;
+  render();
+}
+
+render();
+</script>
