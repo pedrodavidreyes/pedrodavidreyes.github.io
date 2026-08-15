@@ -1,57 +1,81 @@
 ---
-title: "Demo Post 3"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-pubDate: "Sep 12 2022"
-heroImage: "/post_img.webp"
-badge: "Demo badge"
-tags: ["rust","tokio"]
+title: "La ley de los números grandes: Cuando los números dejan de ser intuitivos"
+description: "Millones, billones y más: entender grandes cifras cambia nuestra percepción de escala y realidad."
+pubDate: "2026-06-15"
+heroImage: "/ley_de_los_numeros_grandes.webp"
+badge: ""
+tags: ["Probabilidad"]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer
-malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas
-pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse
-platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada
-fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea
-dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst
-quisque sagittis purus sit amet.
+La **Ley de los Grandes Números** es un principio de probabilidad que dice algo muy intuitivo: **mientras más veces repites un experimento aleatorio, más tienden los resultados promedio a acercarse a lo que teóricamente debería ocurrir**.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum
-quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet.
-Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus.
-Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit
-ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt
-dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus
-arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed
-tempus urna et pharetra pharetra massa massa ultricies mi.
+Imagina una moneda equilibrada. Tiene dos posibles resultados:
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam
-sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec.
-Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna
-fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et
-egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel
-turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra
-nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim
-praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus
-egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam
-ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor
-purus non. Amet dictum sit amet justo donec enim.
+* Águila
+* Sol
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut
-consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra.
-Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor
-dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor
-dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque
-eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices
-tincidunt arcu. Id cursus metus aliquam eleifend mi.
+En teoría, cada uno tiene una probabilidad del **50%**.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus
-imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu
-cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt
-dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat
-sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.
-Egestas integer eget aliquet nibh praesent tristique magna.
+Pero si lanzas la moneda solo **2 veces**, podrías obtener:
+
+Águila, Águila
+
+Eso daría **100% águila y 0% sol**. ¿Significa que la moneda está trucada? No. Simplemente hiciste muy pocos lanzamientos.
+
+Si la lanzas **10 veces**, quizá obtengas:
+
+6 águilas y 4 soles.
+
+Entonces tendríamos:
+
+**60% águila — 40% sol**
+
+Todavía no es exactamente 50/50.
+
+Ahora imagina que la lanzas **100 veces**. Quizá obtengas:
+
+52 águilas y 48 soles.
+
+Ya estamos mucho más cerca del 50%.
+
+Y si hacemos **10,000 lanzamientos**, podríamos obtener algo como:
+
+5,012 águilas y 4,988 soles.
+
+Eso representa aproximadamente:
+
+**50.12% águila — 49.88% sol**
+
+Ahí aparece claramente la Ley de los Grandes Números: **al aumentar el número de observaciones, la proporción observada tiende a acercarse a la probabilidad real del fenómeno.**
+
+Una forma sencilla de visualizarlo sería:
+
+| Lanzamientos | Águila |   Sol | % Águila |
+| -----------: | -----: | ----: | -------: |
+|            2 |      2 |     0 |     100% |
+|           10 |      6 |     4 |      60% |
+|          100 |     52 |    48 |      52% |
+|        1,000 |    493 |   507 |    49.3% |
+|       10,000 |  5,012 | 4,988 |   50.12% |
+
+Hay un detalle importante: **la ley no dice que los resultados tengan que quedar exactamente 50/50**. Tampoco significa que si han salido muchas águilas, ahora “tengan que salir soles” para compensar.
+
+Por ejemplo, después de obtener cinco águilas consecutivas:
+
+**Águila – Águila – Águila – Águila – Águila**
+
+el siguiente lanzamiento sigue teniendo aproximadamente:
+
+**50% águila — 50% sol**
+
+La moneda no recuerda los resultados anteriores.
+
+Lo que sucede es que, cuando acumulamos miles o millones de observaciones, las pequeñas rachas y fluctuaciones tienen cada vez menos peso sobre el resultado total.
+
+Por eso esta ley es tan importante en **análisis de datos**. Una muestra pequeña puede producir resultados sorprendentes simplemente por azar. Una muestra más grande suele darnos una estimación más estable del comportamiento de una población.
+
+Podríamos resumirlo así:
+
+> **Con pocos datos, el azar puede dominar el resultado. Con muchos datos, el patrón real comienza a hacerse visible.**
+
+Y eso da pie a una idea muy buena para tu blog: **tener muchos datos no garantiza que un análisis sea correcto, pero tener muy pocos puede hacer que confundamos ruido con una tendencia real.**

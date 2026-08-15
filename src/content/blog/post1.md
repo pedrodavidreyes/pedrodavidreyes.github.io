@@ -2,7 +2,7 @@
 title: "La paradoja de Simpson: cuando los datos agregados nos engañan"
 description: "La paradoja de Simpson muestra cómo los datos agregados pueden engañar: segmentar y considerar el tamaño de los grupos es clave para interpretar correctamente."
 pubDate: "15 Junio 2026"
-heroImage: ""
+heroImage: "/paradoja_de_simpson.webp"
 tags: ["Estadística", "Análisis"]
 ---
 
