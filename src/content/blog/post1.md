@@ -1,9 +1,9 @@
 ---
-title: "Demo Post 1"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-pubDate: "Sep 10 2022"
-heroImage: "/post_img.webp"
-tags: ["tokio"]
+title: "La paradoja de Simpson: cuando los datos agregados nos engañan"
+description: "La paradoja de Simpson muestra cómo los datos agregados pueden engañar: segmentar y considerar el tamaño de los grupos es clave para interpretar correctamente."
+pubDate: "15 Junio 2026"
+heroImage: "/paradoja_de_simpson.webp"
+tags: ["Estadística"]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
