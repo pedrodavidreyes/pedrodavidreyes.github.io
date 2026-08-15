@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Perfil profesional</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    Analista de Datos con formación en Tecnologías de la Información y más de 10 años convirtiendo datos operativos en decisiones de negocio. <b>Certificado en Análisis de Datos</b>, con dominio de <b>SQL, Python, Excel y Power BI</b>. Experiencia colaborando con equipos multidisciplinarios y comunicando hallazgos con claridad. Orientado a roles data-driven, con interés en fintech y posiciones remotas o híbridas. 
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Educación</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Analista de Datos"
+      subtitle="[Febrero 2026] a [Agosto 2026] en [Tripleten Latam], [ID de credencial: 202601DAES0003566]"
+    />
+    <TimeLineElement
+      title="Licenciatura en Informática Administrativa "
+      subtitle="[1998] a [2002] en [Universidad La Salle Cancún], [Cancún], [México]"
+    />
+    <TimeLineElement
+      title="Técnico Programador Analista"
+      subtitle="[1992] a [1996] en [Centro De Estudios Técnicos En Computación De Cancún], [Cancún], [México]"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experiencia laboral</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Revenue & Sales Manager | Análisis de Datos y Estrategia Comercial"
+      subtitle="Desde [05/2014] a [02/2026] en [Suites Malecón Cancún], [Cancún], [México]"
+    >
+      Analicé el modelo de rentas residenciales y lideré su transición a operación hotelera; recluté, capacité y dirigí un equipo de 6 colaboradores. Desarrollé la estrategia de distribución desde cero, incorporando y gestionando OTAs mediante negociación de comisiones y seguimiento de desempeño, logrando un incremento de 114% en ingresos (YoY) durante el segundo año y 54% en el tercero. Analicé los desafíos operativos y el riesgo de sobreventa en la nueva operación; evalué e implementé el PMS Front2Go y el channel manager SiteMinder, optimizando la gestión de tarifas, disponibilidad y cobros, liberando el 100% del inventario en todos los canales y asegurando la paridad tarifaria. Analicé tendencias estacionales y patrones de demanda para apoyar la definición de tarifas; desarrollé dashboards de desempeño con KPIs de ocupación, ADR y RevPAR, y realicé benchmarking con cadenas hoteleras públicas para monitorear el posicionamiento competitivo.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Gerente De Sistemas"
+      subtitle="Desde [2011] a [2013] en [Amazing Riviera /  World Marketing Solution], [Cancún], [México]"
+    >
+      Integré un call center y desarrollé sitios web y landing pages para campañas digitales (AdWords y advertising), lideré un equipo de 2 diseñadores gráficos, generando más de 40 leads diarios.
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="Asistente Senior De Tecnología De La Información"
+      subtitle="Desde [2011] a [2011] en [El Dorado Royal], [Riviera Maya], [México]"
+    >
+      Proveí soporte técnico a usuarios y mantenimiento de equipos, asegurando la continuidad operativa. Gestioné respaldos y control de información para garantizar la integridad de los datos.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Gerente De Tecnología Del Negocio"
+      subtitle="Desde [2001] a [2008] en [Aguakan SA. De C.V.], [Cancún], [México]"
+    >
+      Supervisé operaciones de TI, soporte técnico a usuarios y continuidad operativa, liderando un equipo de 3 personas. Administré y di seguimiento al inventario de activos tecnológicos, incluyendo altas, bajas, asignación y resguardo de equipos, así como proveedores y niveles de servicio. Analicé incidencias y datos operativos para identificar áreas de mejora, optimizar procesos y prevenir fallas. Gestioné respaldos, controles y documentación administrativa para garantizar la integridad y disponibilidad de la información. Coordiné la atención y resolución de incidencias relacionadas con equipos tecnológicos bajo lineamientos ISO 9004:2000, con atención al detalle y orientación al servicio.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="#" target="_blank"> Análisis de Datos - TripleTen (2026) </a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> Fundamentos de Marketing Digital — Google (2019)</a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> Herramientas de Mejora Continua ISO 9004:2000 — Bureau Veritas (2007)</a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> SQL Server — Microsoft (2002-2003)</a>
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+<li>SQL</li>
+<li>Python</li>
+<li>Power BI / Tableau</li>
+<li>Power Query / DAX</li>
+<li>Excel</li>
+<li>Tablas dinámicas</li>
+<li>Business Intelligence</li>
+<li>Dashboards</li>
+<li>Análisis de datos</li>
+<li>Limpieza, validación y calidad de datos</li>
+<li>KPI / Métricas de negocio</li>
+<li>IA aplicada a análisis de datos</li>
+<li>Automatización de procesos</li>
+<li>Git / GitHub</li>
+<li>Atención al detalle</li>
+<li>Trabajo en equipo</li>
+  </ul>
+</BaseLayout>

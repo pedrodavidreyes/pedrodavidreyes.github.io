@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Proyectos de análisis de datos</div>
+  </div>
+
+<HorizontalCard
+    title="🛒 Embudo y retención · MercadoLibre"
+    img="/proyecto_4_embudo.webp"
+    desc="Análisis del funnel de compra y cohortes de retención D7–D28, con simulación del impacto económico de mejoras en la tasa de conversión."
+    url="https://github.com/pedrodavidreyes/Embudo-y-retencion-MercadoLibre"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+ <HorizontalCard
+    title="🚦 Movilidad urbana y economía · Latam"
+    img="/proyecto_5_pib_2024.webp"
+    desc="Análisis exploratorio que evalúa la relación entre congestión vehicular y PIB per cápita para identificar ciudades prioritarias de inversión en infraestructura de transporte."
+    url="https://github.com/pedrodavidreyes/Movilidad-Urbana-y-Economia"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Desarrollo web</div>
+  </div>
+  <HorizontalCard
+    title="💻 Website - Mallasombra del bajio"
+    img="/mallasombra_1280x720.webp"
+    desc="Rediseño integral de un sitio web que desarrollé años atrás, modernizando su imagen, estructura, contenido y experiencia para fortalecer confianza, claridad y conversión."
+    url="#"
+    badge="Nuevo"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="💻 Website - Suites Malecón Cancún"
+    img="/smc2026.webp"
+    desc="Diseñe y desarrollé el sitio web de Suites Malecón Cancún, integrando un motor de reservas conectado al channel manager para disponibilidad y reservas en tiempo real."
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Demo Project 5"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+  />
+</BaseLayout>
