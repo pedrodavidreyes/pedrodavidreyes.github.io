@@ -6,5 +6,11 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://pedrodavidreyes.github.io',
-  integrations: [mdx(), sitemap(), tailwind()]
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !new URL(page).pathname.startsWith('/store'),
+    }),
+    tailwind(),
+  ]
 });
