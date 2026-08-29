@@ -91,7 +91,7 @@ Y quizá esa sea una de las ideas más importantes al preparar un CV:
 
 ## Descarga el template gratuito
 
-Para facilitarte el trabajo, he preparado un [**template de CV gratuito 💾**](/public/CV_Template_ATS_JuanPerez.docx), con una estructura sencilla, editable y pensada para mantener una buena legibilidad tanto para reclutadores como para sistemas ATS.
+Para facilitarte el trabajo, he preparado un [**template de CV gratuito 💾**](/CV_Template_ATS_JuanPerez.docx), con una estructura sencilla, editable y pensada para mantener una buena legibilidad tanto para reclutadores como para sistemas ATS.
 
 Puedes descargarlo, modificarlo y adaptarlo a tu experiencia y a la vacante que estés buscando.
 
