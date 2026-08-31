@@ -9,11 +9,19 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
 const last_posts = posts.slice(0, 3);
 ---
 
-<BaseLayout sideBarActiveItemID="home">
+<!-- se modifica esta linea <BaseLayout sideBarActiveItemID="home">
+  -->
+<BaseLayout
+  sideBarActiveItemID="home"
+  title="Pedro David Reyes Pérez | Data Analyst"
+  description="Portafolio de Pedro David Reyes Pérez, Data Analyst con experiencia en SQL, Python, Power BI, Excel y análisis de negocio."
+>
   <div class="pb-12 mt-5">
     <div class="text-xl py-1">Hola 👋</div>
-    <div class="text-5xl font-bold">Soy Pedro David Reyes</div>
-    <div class="text-3xl py-3 font-bold">Analista de Datos con visión de negocio</div>
+    <!-- se modifica esta linea <div class="text-5xl font-bold">Soy Pedro David Reyes</div> -->
+    <h1 class="text-5xl font-bold">Soy Pedro David Reyes</h1>
+    <!-- se modifica esta linea <div class="text-3xl py-3 font-bold">Analista de Datos con visión de negocio</div>-->
+    <h2 class="text-3xl py-3 font-bold">Analista de Datos con visión de negocio</h2>
 
 <div class="py-2"> <text class="text-lg"> SQL · Python · Power BI · Excel </text> </div>      
 
